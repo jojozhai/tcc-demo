@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>pzx-tcc-point</artifactId>
+	<parent>
+		<groupId>com.ymt</groupId>
+		<artifactId>pzx-tcc</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../pzx-tcc</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.ymt.pz365.framework</groupId>
+			<artifactId>pzx-framework-data-jpa</artifactId>
+			<version>${pzx.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ymt.pz365.framework</groupId>
+			<artifactId>pzx-framework-dubbo</artifactId>
+			<version>${pzx.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ymt</groupId>
+			<artifactId>pzx-tcc-point-api</artifactId>
+			<version>${pzx.tcc.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>
