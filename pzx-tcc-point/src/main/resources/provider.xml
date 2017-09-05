@@ -11,8 +11,6 @@
     
     <dubbo:protocol name="dubbo" port="20882" />
      
-    <dubbo:provider timeout="30000"/>
-    
     <dubbo:service ref="pointService" interface="com.ymt.tcc.service.PointService" version="1.0" group="tcc"/>
     
 </beans>

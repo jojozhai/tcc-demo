@@ -13,7 +13,10 @@ import com.ymt.pz365.framework.core.utils.SpringBoot;
  *
  */
 @SpringBootApplication
-@ImportResource({ "classpath:dubbo.xml", "classpath*:com/ymt/*/*/dubbo/consumer.xml" })
+@ImportResource({ "classpath:tcc-transaction.xml", 
+				  "classpath:tcc-transaction-dubbo.xml", 
+				  "classpath:dubbo.xml", 
+				  "classpath*:com/ymt/*/*/dubbo/consumer.xml" })
 public class OrderApplication {
 
 	public static void main(String[] args) {

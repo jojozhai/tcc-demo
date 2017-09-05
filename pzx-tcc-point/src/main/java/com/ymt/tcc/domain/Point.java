@@ -15,6 +15,8 @@ import com.ymt.pz365.data.jpa.domain.DomainImpl;
 public class Point extends DomainImpl {
 	
 	private int amount;
+	
+	private int freeze;
 
 	/**
 	 * @return the amount
@@ -28,6 +30,20 @@ public class Point extends DomainImpl {
 	 */
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+
+	/**
+	 * @return the freeze
+	 */
+	public int getFreeze() {
+		return freeze;
+	}
+
+	/**
+	 * @param freeze the freeze to set
+	 */
+	public void setFreeze(int freeze) {
+		this.freeze = freeze;
 	}
 	
 }

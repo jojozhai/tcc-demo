@@ -21,9 +21,23 @@
 			<version>${pzx.framework.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.ymt</groupId>
 			<artifactId>pzx-tcc-point-api</artifactId>
 			<version>${pzx.tcc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mengyun</groupId>
+			<artifactId>tcc-transaction-spring</artifactId>
+			<version>${tcc.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mengyun</groupId>
+			<artifactId>tcc-transaction-dubbo</artifactId>
+			<version>${tcc.framework.version}</version>
 		</dependency>
 	</dependencies>
 

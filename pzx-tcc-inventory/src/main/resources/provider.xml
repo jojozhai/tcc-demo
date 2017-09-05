@@ -11,8 +11,6 @@
     
     <dubbo:protocol name="dubbo" port="20884" />
      
-    <dubbo:provider timeout="30000"/>
-    
     <dubbo:service ref="inventoryService" interface="com.ymt.tcc.service.InventoryService" version="1.0" group="tcc"/>
     
 </beans>
