@@ -46,12 +46,14 @@ public class OrderServiceImpl implements OrderService {
 		
 		inventoryService.changeInventory(new InventoryInfo(1L, 1));
 
-		orderRepository.save(new Order("ok"));
-
 	}
 
 	public void confirmCreate() {
+		
 		System.out.println("confirm");
+		
+		orderRepository.save(new Order("ok"));
+		
 	}
 
 	public void cancelCreate() {

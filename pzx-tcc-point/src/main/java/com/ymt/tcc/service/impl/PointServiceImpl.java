@@ -35,23 +35,25 @@ public class PointServiceImpl implements PointService {
 	@Override
 	@Compensable(confirmMethod = "confirmChange", cancelMethod = "cancelChange", transactionContextEditor = DubboTransactionContextEditor.class)
 	public void changePoint(PointInfo info) {
-		logger.info("try");
+		logger.info("point try");
 		Point point = pointRepository.findOne(info.getId());
 		point.setAmount(point.getAmount() - info.getAmount());
 		point.setFreeze(point.getFreeze() + info.getAmount());
 	}
 	
 	public void confirmChange(PointInfo info) {
-		logger.info("confirm");
+		logger.info("point confirm");
 		Point point = pointRepository.findOne(info.getId());
 		point.setFreeze(point.getFreeze() - info.getAmount());
 	}
 	
 	public void cancelChange(PointInfo info) {
-		logger.info("cancel");
+		logger.info("point cancel");
 		Point point = pointRepository.findOne(info.getId());
 		point.setAmount(point.getAmount() + info.getAmount());
 		point.setFreeze(point.getFreeze() - info.getAmount());
+		
+//		throw new RuntimeException("test cancel error");
 	}
 
 }

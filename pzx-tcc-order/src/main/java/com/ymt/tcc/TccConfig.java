@@ -15,6 +15,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.alibaba.dubbo.remoting.TimeoutException;
+import com.google.common.collect.Sets;
+
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -56,12 +59,14 @@ public class TccConfig {
 		return transactionRepository;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Bean
 	public RecoverConfig recoverConfig() {
 		DefaultRecoverConfig recoverConfig = new DefaultRecoverConfig();
 		recoverConfig.setMaxRetryCount(30);
 		recoverConfig.setRecoverDuration(60);
 		recoverConfig.setCronExpression("0/30 * * * * ?");
+		recoverConfig.setDelayCancelExceptions(Sets.newHashSet(TimeoutException.class));
 		return recoverConfig;
 	}
 

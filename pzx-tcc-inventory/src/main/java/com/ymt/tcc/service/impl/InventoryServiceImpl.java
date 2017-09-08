@@ -36,29 +36,40 @@ public class InventoryServiceImpl implements InventoryService {
 	@Compensable(confirmMethod = "confirmChange", cancelMethod = "cancelChange", transactionContextEditor = DubboTransactionContextEditor.class)
 	public void changeInventory(InventoryInfo info) {
 		
-		logger.info("try");
+		logger.info("inventory try");
 		Inventory inventory = inventoryRepository.findOne(info.getId());
 		inventory.setAmount(inventory.getAmount() - info.getAmount());
 		inventory.setFreeze(inventory.getFreeze() + info.getAmount());
 		
-		throw new RuntimeException("test error");
+//		throw new RuntimeException("test try error");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("go on");
 		
-	}
+	} 
 	
 	public void confirmChange(InventoryInfo info) {
 		
-		logger.info("confirm");
+		logger.info("inventory confirm");
 		Inventory inventory = inventoryRepository.findOne(info.getId());
 		inventory.setFreeze(inventory.getFreeze() - info.getAmount());
+		
+//		throw new RuntimeException("test confirm error");
 		
 	}
 	
 	public void cancelChange(InventoryInfo info) {
 		
-		logger.info("cancel");
+		logger.info("inventory cancel");
 		Inventory inventory = inventoryRepository.findOne(info.getId());
 		inventory.setFreeze(inventory.getFreeze() - info.getAmount());
 		inventory.setAmount(inventory.getAmount() + info.getAmount());
+		
+//		throw new RuntimeException("test cancel error");
+		
 	}
 
 }
